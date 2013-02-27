@@ -83,8 +83,15 @@ static errorCode_t neardal_rcd_prv_read_properties(RcdProp *rcd)
 
 	tmpOut = g_variant_lookup_value(tmp, "URI",
 					G_VARIANT_TYPE_STRING);
+
+	tmpOut = g_variant_lookup_value(tmp, "Carrier",
+ 					G_VARIANT_TYPE_STRING);
+ 	if (tmpOut != NULL)
+ 		rcd->carrier = g_variant_dup_string(tmpOut, NULL);
+					
 	if (tmpOut != NULL)
 		rcd->uri = g_variant_dup_string(tmpOut, NULL);
+		
 
 	return err;
 error:
@@ -140,6 +147,7 @@ static void neardal_rcd_prv_free(RcdProp **rcd)
 	g_free((*rcd)->representation);
 	g_free((*rcd)->type);
 	g_free((*rcd)->uri);
+	g_free((*rcd)->carrier);
 	g_free((*rcd));
 	(*rcd) = NULL;
 }
