@@ -44,6 +44,7 @@ typedef struct {
 	gchar		*uri;
 	gsize		uriObjSize;
 	gchar		*mime;
+	gchar           *carrier; 
 } RcdProp;
 
 /*****************************************************************************
