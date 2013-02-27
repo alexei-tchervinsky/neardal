@@ -204,6 +204,12 @@ errorCode_t neardal_rcd_prv_format(GVariantBuilder *builder, RcdProp *rcd)
 		neardal_tools_prv_add_dict_entry(builder, "Action"
 						 , rcd->action, 0
 						 , (int) G_TYPE_STRING);
+						 
+ 	/* Carrier */
+ 	if (rcd->carrier != NULL)
+ 		neardal_tools_prv_add_dict_entry(builder, "Carrier"
+ 						 , rcd->carrier, 0 , (int) G_TYPE_STRING);
+				 
 
 	return err;
 }
