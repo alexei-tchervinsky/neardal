@@ -794,6 +794,9 @@ static GOptionEntry options[] = {
 
 		{ "uri", 'u', 0, G_OPTION_ARG_STRING, &rcd.uri
 				  , "URI", "http://www.intel.com" },
+				  
+		{ "carrier", 'i', 0, G_OPTION_ARG_STRING, &rcd.carrier
+< 				  , "Carrier", "bluetooth" },
 
 		{ NULL, 0, 0, 0, NULL, NULL, NULL} /* End of List */
 	};
@@ -815,6 +818,8 @@ static GOptionEntry options[] = {
 		ncl_cmd_print(stdout, "Sample (Type 'SmartPoster'):");
 		ncl_cmd_print(stdout, "e.g. < push --type=SmartPoster \
 --uri=http://www.nfc-forum.com > --dev /org/neard/nfc0/device0 >\n");
+		ncl_cmd_print(stdout, "e.g. < push --type Handover \
+--carrier bluetooth --dev /org/neard/nfc0/device0 >\n");
 	}
 
 	if (nclErr != NCLERR_NOERROR)
